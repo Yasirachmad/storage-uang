@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Money Tracker</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+    <link rel="manifest" href="assets/site.webmanifest" />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="content">
+      <main class="main">
+        <div class="container">
+          <section class="hero">
+            <div class="hero-content">
+              <div class="hero-text">
+                <h1 class="hero-welcome">Welcome back!</h1>
+                <h2 class="hero-name">Your money tracker dashboard. Add transactions, view your balance, and stay on top of your financial health - all in one place.</h2>
+                <div class="hero-cta">
+                  <span>Manage Your Money</span>
+                  <svg class="hero-arrow" width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 1L15 6L10 11M15 6H1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+              </div>
+
+              <div class="hero-image">
+                <img src="https://cdni.iconscout.com/illustration/premium/thumb/finance-management-illustration-download-in-svg-png-gif-file-formats--analytics-logo-financial-business-money-pack-people-illustrations-5875018.png" alt="" />
+              </div>
+            </div>
+          </section>
+
+          <!-- money cards -->
+          <div class="money-card-content">
+            <div class="money-card total-balance">
+              <div class="card-info">
+                <h3 class="card-title">Total Balance</h3>
+                <p class="card-amount">Rp 2,500,000</p>
+              </div>
+            </div>
+
+            <div class="money-card income">
+              <div class="card-info">
+                <h3 class="card-title">Income</h3>
+                <p class="card-amount">Rp 5,000,000</p>
+              </div>
+            </div>
+
+            <div class="money-card expense">
+              <div class="card-info">
+                <h3 class="card-title">Expense</h3>
+                <p class="card-amount">Rp 2,500,000</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- history section -->
+          <div class="history-section">
+            <div class="history-header">
+              <h2 class="history-title">Latest Activity</h2>
+              <button class="delete-all-btn">Delete All</button>
+            </div>
+
+            <div class="history-list">
+              <div class="history-item income-item">
+                <div class="history-icon">💰</div>
+                <div class="history-info">
+                  <h3 class="history-name">Monthly Salary</h3>
+                  <p class="history-date">Today, 10:30 AM</p>
+                </div>
+                <div class="history-amount income">+Rp 5,000,000</div>
+                <button class="delete-btn">Delete</button>
+              </div>
+
+              <div class="history-item expense-item">
+                <div class="history-icon">🛒</div>
+                <div class="history-info">
+                  <h3 class="history-name">Grocery Shopping</h3>
+                  <p class="history-date">Yesterday, 3:15 PM</p>
+                </div>
+                <div class="history-amount expense">-Rp 250,000</div>
+                <button class="delete-btn">Delete</button>
+              </div>
+
+              <div class="history-item expense-item">
+                <div class="history-icon">⛽</div>
+                <div class="history-info">
+                  <h3 class="history-name">Gas Station</h3>
+                  <p class="history-date">Yesterday, 8:00 AM</p>
+                </div>
+                <div class="history-amount expense">-Rp 150,000</div>
+                <button class="delete-btn">Delete</button>
+              </div>
+
+              <div class="history-item income-item">
+                <div class="history-icon">💼</div>
+                <div class="history-info">
+                  <h3 class="history-name">Freelance Project</h3>
+                  <p class="history-date">2 days ago, 2:45 PM</p>
+                </div>
+                <div class="history-amount income">+Rp 1,500,000</div>
+                <button class="delete-btn">Delete</button>
+              </div>
+
+              <div class="history-item expense-item">
+                <div class="history-icon">🍕</div>
+                <div class="history-info">
+                  <h3 class="history-name">Food Delivery</h3>
+                  <p class="history-date">3 days ago, 7:20 PM</p>
+                </div>
+                <div class="history-amount expense">-Rp 85,000</div>
+                <button class="delete-btn">Delete</button>
+              </div>
+
+              <div class="history-item expense-item">
+                <div class="history-icon">📱</div>
+                <div class="history-info">
+                  <h3 class="history-name">Phone Bill</h3>
+                  <p class="history-date">1 week ago</p>
+                </div>
+                <div class="history-amount expense">-Rp 200,000</div>
+                <button class="delete-btn">Delete</button>
+                <button onclick="exportCSV()" class="export-btn">Export CSV</button>
+            </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <div class="right-content">
+        <!-- form -->
+        <div class="form-section">
+          <h2 class="form-title">Add New Transaction</h2>
+
+          <form class="transaction-form">
+            <div class="form-group">
+              <label class="form-label" for="transaction-name">Transaction Name</label>
+              <input type="text" id="transaction-name" name="transaction-name" class="form-input" placeholder="Enter transaction name" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="amount">Amount (Rp)</label>
+              <input type="text" id="amount" name="amount" class="form-input" placeholder="Amount" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Transaction Type</label>
+              <div class="radio-group">
+                <div class="radio-item">
+                  <input type="radio" id="income" name="type" value="income" checked />
+                  <label for="income" class="radio-label income-label"> Income </label>
+                </div>
+                <div class="radio-item">
+                  <input type="radio" id="expense" name="type" value="expense" />
+                  <label for="expense" class="radio-label expense-label"> Expense </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="category">Category</label>
+              <select id="category" name="category" class="form-select" required>
+                <option value="">Select Category</option>
+                <optgroup label="Income">
+                  <option value="salary">💰 Salary</option>
+                  <option value="freelance">💼 Freelance</option>
+                  <option value="investment">📈 Investment</option>
+                  <option value="business">🏢 Business</option>
+                </optgroup>
+                <optgroup label="Expense">
+                  <option value="food">🍕 Food & Dining</option>
+                  <option value="transport">🚗 Transportation</option>
+                  <option value="shopping">🛒 Shopping</option>
+                  <option value="bills">📱 Bills & Utilities</option>
+                  <option value="entertainment">🎬 Entertainment</option>
+                  <option value="health">🏥 Healthcare</option>
+                </optgroup>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="date">Date</label>
+              <input type="date" id="date" name="date" class="form-input" required />
+            </div>
+
+            <button type="submit" class="submit-btn">
+              <span class="btn-icon">➕</span>
+              Add Transaction
+            </button>
+          </form>
+        </div>
+
+        <!-- stats -->
+        <div class="quick-stats">
+          <h3 class="stats-title">Total Transactions</h3>
+          <div class="total-counter">
+            <div class="counter-value">4</div>
+            <div class="counter-label">All Time</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
